@@ -9,7 +9,7 @@ const (
 	Table_substr   = "coupon_store_"
 	Valid_file_row = 2
 	Primary_status = "available"
-	Redis_host     = "redis-ingress-stg1.netcorein.com:6379"
+	Redis_host     = "localhost:6379"
 	Coupon_key     = "COUPON_"
 	Threshold      = 5 // threshold=(keeping 5 for 20% coupon to be pushed to redis, if 50%, then the constant value to be 2)
 	RedisTimeout   = 5 * time.Second
