@@ -1,0 +1,10 @@
+FROM amd64/golang:1.21.1
+LABEL Maintener="aravind.padmanabhan@netcore.co.in"
+
+RUN apt-get update
+RUN apt-get install zip -y
+ARG APP_NAME=coupon
+COPY . /$APP_NAME/
+WORKDIR /$APP_NAME/coupon-management/couponManagement/
+RUN GOPATH= go mod download
+

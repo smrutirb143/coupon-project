@@ -1,0 +1,24 @@
+FROM coupon-management:base-image
+ARG APP_NAME=coupon
+ARG ARTIFACT_DIR=/tmp/artifact-dir
+ARG SIT_ENV=default
+RUN mkdir /$APP_NAME
+COPY . /$APP_NAME
+WORKDIR /$APP_NAME/coupon-management/
+
+# Build mt-pim-delta-receiver
+RUN GOOS=linux GOARCH=amd64 CGO_ENABLED=0 GOPATH= go build -o couponManagement/bootstrap couponManagement/main.go
+
+
+RUN mkdir -p /$APP_NAME/$ARTIFACT_DIR
+
+RUN find
+
+RUN zip -j couponManagement/coupon.zip couponManagement/bootstrap
+
+
+RUN cp -av couponManagement/*.zip /$APP_NAME/$ARTIFACT_DIR/
+
+# Print the list of artifacts
+WORKDIR /$APP_NAME/$ARTIFACT_DIR/
+RUN find

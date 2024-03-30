@@ -1,0 +1,22 @@
+MAXRETRY: 3
+Table_substr: "coupon_store_"
+Primary_status: "avilable"
+Redis_host: "localhost:6379"
+Coupon_key: "COUPON_"
+Threshold: 500
+RedisTimeout: 5s
+Batchsize: 200
+Used_status: "used"
+RDS_HOSTNAME: "Replace_me"
+RDS_DBNAME: "Replace_me"
+RDS_USERNAME: "Replace_me"
+RDS_PASSWORD: "Replace_me"
+REDIS_MAX_IDLE: "5"
+REDIS_MAX_ACTIVE: "10"
+Meta_data_table: "coupon_store_meta"
+LoadPort: ":4343"
+FetchPort: ":4344"
+ReportPort: ":4345"
+LoadUrl: "http://localhost:4343/couponCacheLoad"
+ThresholdValue: 5 #If 5 the 20%, if 2 then 50%
+Logfile: "/tmp/coupon.log"
